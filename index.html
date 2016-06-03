@@ -5,17 +5,25 @@
   <meta charset="utf-8">
   <title>D3 Test</title>
   <script type="text/javascript" src="d3/d3.js"></script>
+  <link rel="stylesheet" type="text/css" href="d3.css">
 </head>
 
 <body>
+  <svg width="500" height="50">
+</svg>
   <script type="text/javascript">
-    const dataset=[5,10,15,20,25]
-    d3.select("body")
-      .selectAll("p")
+  const dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+              14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+              24, 18, 25, 9, 3 ]
+    d3.select("body").selectAll("div")
       .data(dataset)
       .enter()
-      .append("p")
-      .text(function(d){return d})
+      .append("div")
+      .attr("class", "bar")
+      .style("height", function(d) {
+        const barHeight = d * 5
+        return barHeight + "px"
+      })
   </script>
 </body>
 
